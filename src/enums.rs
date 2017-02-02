@@ -4,12 +4,12 @@
 // Vulkan C to Rust FFI Enumerations
 use super::types::VkFlags;
 
-#[repr(C)]
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VkSystemAllocationScope
 {
 	Command = 0, Object = 1, Cache = 2, Device = 3, Instance = 4
 }
-#[repr(C)]
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VkInternalAllocationType
 {
 	Executable = 0
@@ -272,7 +272,7 @@ pub enum VkFormat
 	ASTC_12x12_UNORM_BLOCK = 183,
 	ASTC_12x12_SRGB_BLOCK = 184
 }
-#[repr(C)] #[derive(PartialEq, Eq, Debug, Clone)]
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VkResult
 {
 	Success = 0,
@@ -305,7 +305,7 @@ pub const VK_QUEUE_GRAPHICS_BIT: VkFlags		= 0x01;
 pub const VK_QUEUE_COMPUTE_BIT: VkFlags			= 0x02;
 pub const VK_QUEUE_TRANSFER_BIT: VkFlags		= 0x04;
 pub const VK_QUEUE_SPARSE_BINDING_BIT: VkFlags	= 0x08;
-#[repr(C)] pub enum VkPhysicalDeviceType
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkPhysicalDeviceType
 {
 	Other = 0,
 	IntegratedGPU = 1,
@@ -313,16 +313,16 @@ pub const VK_QUEUE_SPARSE_BINDING_BIT: VkFlags	= 0x08;
 	VirtualGPU = 3,
 	CPU = 4
 }
-#[repr(C)] pub enum VkImageViewType
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkImageViewType
 {
 	Dim1 = 0, Dim2 = 1, Dim3 = 2, Cube = 3, Dim1Array = 4, Dim2Array = 5, CubeArray = 6
 }
-#[repr(C)] pub enum VkComponentSwizzle
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkComponentSwizzle
 {
 	Identity = 0, Zero = 1, One = 2,
 	R = 3, G = 4, B = 5, A = 6
 }
-#[repr(C)] #[derive(Clone, Copy)] pub enum VkSharingMode
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkSharingMode
 {
 	Exclusive = 0,
 	Concurrent = 1
@@ -382,7 +382,7 @@ pub const VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT: VkFlags	= 0x20;
 pub const VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT: VkFlags		= 0x40;
 pub const VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT: VkFlags			= 0x80;
 
-#[repr(C)] #[derive(Copy, Clone)] pub enum VkImageTiling
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkImageTiling
 {
 	Optimal = 0, Linear = 1
 }
@@ -391,27 +391,27 @@ pub const VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT: VkFlags			= 0x80;
 	Dim1 = 0, Dim2 = 1, Dim3 = 2
 }
 
-#[repr(C)] pub enum VkAttachmentLoadOp
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkAttachmentLoadOp
 {
 	Load = 0, Clear = 1, DontCare = 2
 }
-#[repr(C)] pub enum VkAttachmentStoreOp
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkAttachmentStoreOp
 {
 	Store = 0, DontCare = 1
 }
-#[repr(C)] pub enum VkPipelineBindPoint
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkPipelineBindPoint
 {
 	Graphics = 0, Compute = 1
 }
-#[repr(C)] pub enum VkCommandBufferLevel
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkCommandBufferLevel
 {
 	Primary = 0, Secondary = 1
 }
-#[repr(C)] pub enum VkIndexType
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkIndexType
 {
 	U16 = 0, U32 = 1
 }
-#[repr(C)] pub enum VkSubpassContents
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkSubpassContents
 {
 	Inline = 0, SecondaryCommandBuffers = 1
 }
@@ -470,11 +470,11 @@ pub const VK_FENCE_CREATE_SIGNALED_BIT: VkFlags	 = 0x01;
 
 pub const VK_QUEUE_FAMILY_IGNORED: u32 = 0u32;
 
-#[repr(C)] pub enum VkVertexInputRate
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkVertexInputRate
 {
 	Vertex = 0, Instance = 1
 }
-#[repr(C)] pub enum VkPrimitiveTopology
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkPrimitiveTopology
 {
 	PointList = 0, LineList = 1, LineStrip = 2,
 	TriangleList = 3, TriangleStrip = 4, TriangleFan = 5,
@@ -482,27 +482,27 @@ pub const VK_QUEUE_FAMILY_IGNORED: u32 = 0u32;
 	TriangleListWithAdjacency = 8, TriangleStripWithAdjacency = 9,
 	PatchList = 10
 }
-#[repr(C)] pub enum VkPolygonMode
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkPolygonMode
 {
 	Fill = 0, Line = 1, Point = 2
 }
-#[repr(C)] pub enum VkFrontFace
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkFrontFace
 {
 	CounterClockwise = 0, Clockwise = 1
 }
-#[repr(C)] pub enum VkCompareOp
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkCompareOp
 {
 	Never = 0, Less = 1, Equal = 2, LessOrEqual = 3,
 	Greater = 4, NotEqual = 5, GreaterOrEqual = 6,
 	Always = 7
 }
-#[repr(C)] pub enum VkStencilOp
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkStencilOp
 {
 	Keep = 0, Zero = 1, Replace = 2,
 	IncrementAndClamp = 3, DecrementAndClamp = 4,
 	Invert = 5, IncrementAndWrap = 6, DecrementAndWrap = 7
 }
-#[repr(C)] pub enum VkLogicOp
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkLogicOp
 {
 	Clear = 0, And = 1, AndReverse = 2,
 	Copy = 3, AndInverted = 4, NOP = 5,
@@ -510,7 +510,7 @@ pub const VK_QUEUE_FAMILY_IGNORED: u32 = 0u32;
 	Invert = 10, OrReverse = 11, CopyInverted = 12,
 	OrInverted = 13, Nand = 14, Set = 15
 }
-#[repr(C)] pub enum VkBlendFactor
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkBlendFactor
 {
 	Zero = 0, One = 1,
 	SrcColor = 2, OneMinusSrcColor = 3,
@@ -523,12 +523,12 @@ pub const VK_QUEUE_FAMILY_IGNORED: u32 = 0u32;
 	Src1Color = 15, OneMinusSrc1Color = 16,
 	Src1Alpha = 17, OneMinusSrc1Alpha = 18
 }
-#[repr(C)] pub enum VkBlendOp
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkBlendOp
 {
 	Add = 0, Subtract = 1, ReverseSubtract = 2,
 	Min = 3, Max = 4
 }
-#[repr(C)] pub enum VkDynamicState
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkDynamicState
 {
 	Viewport = 0, Scissor = 1, LineWidth = 2,
 	DepthBias = 3, BlendConstants = 4, DepthBounds = 5,
@@ -558,7 +558,7 @@ pub const VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT: VkFlags	= 0x10;
 
 pub const VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT: VkFlags	= 0x01;
 
-#[repr(C)] #[derive(Clone, Copy)] pub enum VkDescriptorType
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkDescriptorType
 {
 	Sampler = 0,
 	CombinedImageSampler = 1,
@@ -572,29 +572,29 @@ pub const VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT: VkFlags	= 0x01;
 	StorageBufferDynamic = 9,
 	InputAttachment = 10
 }
-#[repr(C)] #[derive(PartialEq, Eq, Debug)] pub enum VkFilter
+#[repr(C)] #[derive(PartialEq, Eq, Debug, Clone, Copy)] pub enum VkFilter
 {
 	Nearest = 0, Linear = 1,
 	CubicImg = 1000015000
 }
-#[repr(C)] pub enum VkSamplerMipmapMode
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkSamplerMipmapMode
 {
 	Nearest = 0, Linear = 1
 }
-#[repr(C)] pub enum VkSamplerAddressMode
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkSamplerAddressMode
 {
 	Repeat = 0, MirroredRepeat = 1,
 	ClampToEdge = 2, ClampToBorder = 3,
 	MirrorClampToEdge = 4
 }
-#[repr(C)] pub enum VkBorderColor
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkBorderColor
 {
 	FloatTransparentBlack = 0, IntTransparentBlack = 1,
 	FloatOpaqueBlack = 2, IntOpaqueBlack = 3,
 	FloatOpaqueWhite = 4, IntOpaqueWhite = 5
 }
 
-#[repr(C)] #[derive(Clone, Copy, Debug)]
+#[repr(C)] #[derive(PartialEq, Eq, Clone, Copy, Debug)]
 pub enum VkColorSpaceKHR
 {
 	SRGB_NonLinear = 0
@@ -623,8 +623,7 @@ pub const VK_COMPOSITE_ALPHA_PREMULTIPLIED_BIT: VkFlags     = 0x02;
 pub const VK_COMPOSITE_ALPHA_POSTMULTIPLIED_BIT: VkFlags    = 0x04;
 pub const VK_COMPOSSITE_ALPHA_INHERIT: VkFlags              = 0x08;
 
-#[derive(Debug)]
-#[repr(C)] pub enum VkDebugReportObjectTypeEXT
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkDebugReportObjectTypeEXT
 {
 	Unknown = 0, Instance = 1,
 	PhysicalDevice = 2, Device = 3,
@@ -635,7 +634,7 @@ pub const VK_COMPOSSITE_ALPHA_INHERIT: VkFlags              = 0x08;
 	DescriptorSetLayout = 20, Sampler = 21, DescriptorPool = 22, DescriptorSet = 23,
 	Framebuffer = 24, CommandPool = 25, SurfaceKHR = 26, SwapchainKHR = 27, DebugReportEXT = 28
 }
-#[repr(C)] pub enum VkDebugReportErrorEXT
+#[repr(C)] #[derive(Debug, PartialEq, Eq, Clone, Copy)] pub enum VkDebugReportErrorEXT
 {
 	_None = 0, CallbackRef = 1
 }
